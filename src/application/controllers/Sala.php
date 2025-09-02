@@ -69,7 +69,7 @@ class Sala extends CI_Controller {
         $this->estatus = $estatusFront;
     }
 
-    public function inserin()
+    public function inserir()
     {
         
         $erros = [];

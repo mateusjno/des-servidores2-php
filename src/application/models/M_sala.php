@@ -14,7 +14,7 @@ class M_sala extends CI_Model
      * 98 - Método auxiliar de consulta que não trouxe dados
      */
 
-    public function inserin($codigo, $descricao, $andar, $capacidade)
+    public function inserir($codigo, $descricao, $andar, $capacidade)
     {
         try {
             // Verifico se a sala já está cadastrada
