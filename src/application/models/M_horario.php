@@ -1,25 +1,26 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_sala extends CI_Model
+class M_horario extends CI_Model
 {
-    public function inserir($codigo, $descricao, $andar, $capacidade)
+    public function inserir($descricao, $horaInicial, $horaFinal)
     {
         try {
-            $retornoConsulta = $this->consultaSala($codigo);
+            $retornoConsulta = $this->consultarHorario('', $horaInicial, $horaFinal);
 
-            if ($retornoConsulta['codigo'] != 9 && $retornoConsulta['codigo'] != 10) {
-                $this->db->query("INSERT INTO tbl_sala (codigo, descricao, andar, capacidade) VALUES ('$codigo', '$descricao', '$andar', '$capacidade')");
+            if ($retornoConsulta['codigo'] != 0 && $retornoConsulta['codigo'] != 10) {
+                $this->db->query("INSERT INTO tbl_horario (descricao, hora_ini, hora_fim)
+                                  VALUES ('$descricao', '$horaInicial', '$horaFinal')");
 
                 if ($this->db->affected_rows() > 0) {
                     $dados = [
                         'codigo' => 1,
-                        'msg' => 'Sala cadastrada corretamente'
+                        'msg' => 'Horário cadastrado corretamente.'
                     ];
                 } else {
                     $dados = [
                         'codigo' => 8,
-                        'msg' => 'Houve algum problema na inserção na tabela de salas.'
+                        'msg' => 'Houve algum problema na inserção na tabela de horários.'
                     ];
                 }
             } else {
@@ -38,29 +39,36 @@ class M_sala extends CI_Model
         return $dados;
     }
 
-    private function consultaSala($codigo)
+    private function consultarHorario($codigo, $horaInicial, $horaFinal)
     {
         try {
-            $sql = "SELECT * FROM tbl_sala WHERE codigo = '$codigo'";
-            $retornoSala = $this->db->query($sql);
+            if ($codigo != '') {
+                $sql = "SELECT * FROM tbl_horario WHERE codigo = $codigo";
+            } else {
+                $sql = "SELECT * FROM tbl_horario
+                        WHERE hora_ini = '$horaInicial'
+                        AND hora_fim = '$horaFinal'";
+            }
 
-            if ($retornoSala->num_rows() > 0) {
-                $linha = $retornoSala->row();
+            $retornoHorario = $this->db->query($sql);
+
+            if ($retornoHorario->num_rows() > 0) {
+                $linha = $retornoHorario->row();
                 if (trim($linha->estatus) == "D") {
                     $dados = [
                         'codigo' => 9,
-                        'msg' => 'Sala desativada no sistema, caso precise reativar a mesma, fale com o administrador.'
+                        'msg' => 'Horário desativado no sistema, caso precise reativar o mesmo, fale com o administrador.'
                     ];
                 } else {
                     $dados = [
                         'codigo' => 10,
-                        'msg' => 'Sala já cadastrada no sistema.'
+                        'msg' => 'Horário já cadastrado no sistema.'
                     ];
                 }
             } else {
                 $dados = [
                     'codigo' => 98,
-                    'msg' => 'Sala não encontrada.'
+                    'msg' => 'Horário não encontrado.'
                 ];
             }
         } catch (Exception $e) {
@@ -73,25 +81,25 @@ class M_sala extends CI_Model
         return $dados;
     }
 
-    public function consultar($codigo, $descricao, $andar, $capacidade)
+    public function consultar($codigo, $descricao, $horaInicial, $horaFinal)
     {
         try {
-            $sql = "SELECT * FROM tbl_sala WHERE estatus = ''";
+            $sql = "SELECT * FROM tbl_horario WHERE estatus = ''";
 
             if (trim($codigo) != '') {
                 $sql .= " AND codigo = $codigo";
-            }
-
-            if (trim($andar) != '') {
-                $sql .= " AND andar = '$andar'";
             }
 
             if (trim($descricao) != '') {
                 $sql .= " AND descricao LIKE '%$descricao%'";
             }
 
-            if (trim($capacidade) != '') {
-                $sql .= " AND andar = '$capacidade'";
+            if (trim($horaInicial) != '') {
+                $sql .= " AND hora_ini = '$horaInicial'";
+            }
+
+            if (trim($horaFinal) != '') {
+                $sql .= " AND hora_fim = '$horaFinal'";
             }
 
             $sql .= " ORDER BY codigo";
@@ -107,7 +115,7 @@ class M_sala extends CI_Model
             } else {
                 $dados = [
                     'codigo' => 11,
-                    'msg' => 'Sala não encontrada.'
+                    'msg' => 'Horário não encontrado.'
                 ];
             }
         } catch (Exception $e) {
@@ -120,38 +128,39 @@ class M_sala extends CI_Model
         return $dados;
     }
 
-    public function alterar($codigo, $descricao, $andar, $capacidade)
+    public function alterar($codigo, $descricao, $horaInicial, $horaFinal)
     {
         try {
-            $retornoConsulta = $this->consultaSala($codigo);
+            $retornoConsulta = $this->consultar($codigo, '', '', '');
 
-            if ($retornoConsulta['codigo'] == 10) {
-                $query = "UPDATE tbl_sala SET ";
+            if ($retornoConsulta['codigo'] == 1) {
+                $query = "UPDATE tbl_horario SET ";
 
                 if ($descricao !== '') {
                     $query .= "descricao = '$descricao', ";
                 }
 
-                if ($andar !== '') {
-                    $query .= "andar = $andar, ";
+                if ($horaInicial !== '') {
+                    $query .= "hora_ini = '$horaInicial', ";
                 }
 
-                if ($capacidade !== '') {
-                    $query .= "capacidade = $capacidade, ";
+                if ($horaFinal !== '') {
+                    $query .= "hora_fim = '$horaFinal', ";
                 }
 
                 $queryFinal = rtrim($query, ", ") . " WHERE codigo = $codigo";
+
                 $this->db->query($queryFinal);
 
                 if ($this->db->affected_rows() > 0) {
                     $dados = [
                         'codigo' => 1,
-                        'msg' => 'Sala atualizada corretamente.'
+                        'msg' => 'Horário atualizado corretamente.'
                     ];
                 } else {
                     $dados = [
                         'codigo' => 8,
-                        'msg' => 'Houve algum problema na atualização na tabela de sala.'
+                        'msg' => 'Houve algum problema na atualização na tabela de horário.'
                     ];
                 }
             } else {
@@ -173,20 +182,20 @@ class M_sala extends CI_Model
     public function desativar($codigo)
     {
         try {
-            $retornoConsulta = $this->consultaSala($codigo);
+            $retornoConsulta = $this->consultarHorario($codigo, '', '');
 
             if ($retornoConsulta['codigo'] == 10) {
-                $this->db->query("UPDATE tbl_sala SET estatus = 'D' WHERE codigo = $codigo");
+                $this->db->query("UPDATE tbl_horario SET estatus = 'D' WHERE codigo = $codigo");
 
                 if ($this->db->affected_rows() > 0) {
                     $dados = [
                         'codigo' => 1,
-                        'msg' => 'Sala DESATIVADA corretamente.'
+                        'msg' => 'Horário DESATIVADO corretamente.'
                     ];
                 } else {
                     $dados = [
                         'codigo' => 8,
-                        'msg' => 'Houve algum problema na DESATIVAÇÃO da Sala.'
+                        'msg' => 'Houve algum problema na DESATIVAÇÃO do Horário.'
                     ];
                 }
             } else {
