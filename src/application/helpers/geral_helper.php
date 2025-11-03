@@ -128,3 +128,32 @@ function compararDataHora($valorInicial, $valorFinal, $tipo)
         'msg' => 'Validação correta.'
     ];
 }
+
+function validarCPF($cpf) {
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);
+
+    if (strlen($cpf) != 11) {
+        return array('codigoHelper' => 15, 'msg' => 'CPF com menos de 11 dígitos.');
+    }
+
+    if (preg_match('/^(\d)\1{10}$/', $cpf)) {
+        return array('codigoHelper' => 16, 'msg' => 'CPF com todos dígitos iguais.');
+    }
+
+    for ($t = 9; $t < 11; $t++) {
+        $soma = 0;
+        for ($i = 0; $i < $t; $i++) {
+            $soma += $cpf[$i] * (($t + 1) - $i);
+        }
+        $digito = (10 * $soma) % 11;
+        $digito = ($digito == 10) ? 0 : $digito;
+
+        if ($cpf[$t] != $digito) {
+            return array('codigoHelper' => 17, 'msg' => 'CPF com dígitos verificadores incorretos.');
+        }
+    }
+
+    return array('codigoHelper' => 0, 'msg' => 'CPF válido.');
+}
+
+
