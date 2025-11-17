@@ -1,0 +1,749 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1756075860865
+  modified: 1756075860865
+  description: ""
+collection:
+  - name: Sala
+    meta:
+      id: fld_f0a4d35d10d248f6b69a26edd08fd62f
+      created: 1756410340495
+      modified: 1756410340495
+      sortKey: -1756410340495
+      description: ""
+    children:
+      - url: http://localhost/des-servidores2-php/src/Sala/inserir
+        name: inserir
+        meta:
+          id: req_e2eb45164a3c456dbbe8b0736af9c2f3
+          created: 1756410343313
+          modified: 1759272029982
+          isPrivate: false
+          description: ""
+          sortKey: -1756410343313
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "codigo": "112",
+              "descricao": "Sala de aula do Marcos",
+              "andar": "1",
+              "capacidade": "40"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Sala/consultar
+        name: consultar
+        meta:
+          id: req_53675b81ca794a6895e518855c58e2b6
+          created: 1757425790434
+          modified: 1759272093429
+          isPrivate: false
+          description: ""
+          sortKey: -1756410343413
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "codigo": "",
+                "descricao": "",
+                "andar": "",
+                "capacidade": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Sala/alterar
+        name: alterar
+        meta:
+          id: req_bcef16460c044dd9bbf476e895070e36
+          created: 1758050780038
+          modified: 1759272103431
+          isPrivate: false
+          description: ""
+          sortKey: -1756410343513
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "codigo": "112",
+              "descricao": "Sala da Fatec",
+              "andar": "",
+              "capacidade": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Sala/desativar
+        name: desativar
+        meta:
+          id: req_e2fd32eaa01c4f9ebd588abea5f9a798
+          created: 1758050878699
+          modified: 1759272119669
+          isPrivate: false
+          description: ""
+          sortKey: -1758050878699
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "codigo": "112"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Horario
+    meta:
+      id: fld_7f4aab115b1744bf8b8b2b92920c206f
+      created: 1759243515652
+      modified: 1759270343827
+      sortKey: -1759243515652
+      description: ""
+    children:
+      - url: http://localhost/des-servidores2-php/src/Horario/inserir
+        name: inserir
+        meta:
+          id: req_d306ffe61e244b8f9223e9f148ee2db1
+          created: 1759244000828
+          modified: 1759271963420
+          isPrivate: false
+          description: ""
+          sortKey: -1759244000828
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "descricao": "Manhã2",
+              "horaInicial": "08:00",
+              "horaFinal": "12:00"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Horario/consultar
+        name: consultar
+        meta:
+          id: req_9bd8830e8b4942a4b1ee94ccfb0b27e3
+          created: 1759244315935
+          modified: 1759272052784
+          isPrivate: false
+          description: ""
+          sortKey: -1759244315935
+        method: GET
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "codigo": "",
+              "descricao": "",
+              "horaInicial": "",
+              "horaFinal": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Horario/alterar
+        name: alterar
+        meta:
+          id: req_3302b297e6484b7c82da437907a790e5
+          created: 1759244469525
+          modified: 1759271996993
+          isPrivate: false
+          description: ""
+          sortKey: -1759244469525
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "codigo": "2",
+              "descricao": "",
+              "horaInicial": "09:00",
+              "horaFinal": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Horario/desativar
+        name: desativar
+        meta:
+          id: req_b18e40e204264bd0aff46b1966fc83f2
+          created: 1759244764173
+          modified: 1759272015650
+          isPrivate: false
+          description: ""
+          sortKey: -1759244764173
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "codigo": "2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Turma
+    meta:
+      id: fld_49a8bb6a67ce4fabad6ec47489a85a30
+      created: 1760364408111
+      modified: 1760364408111
+      sortKey: -1760364408111
+      description: ""
+    children:
+      - url: http://localhost/des-servidores2-php/src/Turma/consultar
+        name: consultar
+        meta:
+          id: req_09095f2d707a4c5abd8c573a56ad085e
+          created: 1760364423058
+          modified: 1760364731417
+          isPrivate: false
+          description: ""
+          sortKey: -1760364423058
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "codigo": "",
+                "descricao": "",
+                "capacidade": "",
+                "dataInicio": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Turma/desativar
+        name: desativar
+        meta:
+          id: req_0847f32114a54cc180a491c642faddb4
+          created: 1760364436637
+          modified: 1760487637684
+          isPrivate: false
+          description: ""
+          sortKey: -1760364436637
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |
+            {
+                "codigo": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Turma/alterar
+        name: alterar
+        meta:
+          id: req_9bac32e45d82449ea2610457f5399c5f
+          created: 1760364438582
+          modified: 1760487612344
+          isPrivate: false
+          description: ""
+          sortKey: -1760364438582
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+                "codigo": "1",
+                "descricao": "",
+                "capacidade": "",
+                "dataInicio": "2025-02-01"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/des-servidores2-php/src/Turma/inserir
+        name: inserir
+        meta:
+          id: req_50c708c7f34e4a4c913a1fd14ce44c96
+          created: 1760364440077
+          modified: 1760364677315
+          isPrivate: false
+          description: ""
+          sortKey: -1760364440077
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+                "descricao": "Gestão Comercial - 1º Semestre",
+                "capacidade": "25",
+                "dataInicio": "2025-02-14"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Mapa
+    meta:
+      id: fld_6f3a4a02e0a04005b0066d5c3c86ac75
+      created: 1763342411616
+      modified: 1763342411616
+      sortKey: -1763342411616
+      description: ""
+    children:
+      - url: ""
+        name: alterar
+        meta:
+          id: req_3d286563223e40ca82274620bc9d42e7
+          created: 1763342466491
+          modified: 1763342654097
+          isPrivate: false
+          description: ""
+          sortKey: -1763342466491
+        method: PUT
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: desativar
+        meta:
+          id: req_f615441b62104a5eaa00a55b606b183d
+          created: 1763342468491
+          modified: 1763342647748
+          isPrivate: false
+          description: ""
+          sortKey: -1763342468492
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: inserir
+        meta:
+          id: req_2d92bfd72ffa44ae9ab93746cffba8a1
+          created: 1763342471076
+          modified: 1763342642142
+          isPrivate: false
+          description: ""
+          sortKey: -1763342471076
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: consultar
+        meta:
+          id: req_4485c29ba12b4f4db637fc21614ed72d
+          created: 1763342473019
+          modified: 1763342637133
+          isPrivate: false
+          description: ""
+          sortKey: -1763342473019
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Professor
+    meta:
+      id: fld_863389634e7447618f6e2b0b7ab091f1
+      created: 1763342418299
+      modified: 1763342418299
+      sortKey: -1763342418299
+      description: ""
+    children:
+      - url: ""
+        name: alterar
+        meta:
+          id: req_ea13ea303872471cb49649f7df851ebf
+          created: 1763342454658
+          modified: 1763342630677
+          isPrivate: false
+          description: ""
+          sortKey: -1763342454658
+        method: PUT
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: desativar
+        meta:
+          id: req_dd9eefd72c8b4260aa2607f79bdb210d
+          created: 1763342456411
+          modified: 1763342624874
+          isPrivate: false
+          description: ""
+          sortKey: -1763342456411
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: inserir
+        meta:
+          id: req_43e23ca5dbbe41129fee08fd5cc5bf21
+          created: 1763342462096
+          modified: 1763342619123
+          isPrivate: false
+          description: ""
+          sortKey: -1763342462096
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: consultar
+        meta:
+          id: req_bfac456277d044e5aaae37b02285f157
+          created: 1763342463824
+          modified: 1763342609582
+          isPrivate: false
+          description: ""
+          sortKey: -1763342463824
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Usuario
+    meta:
+      id: fld_de971b7145984f788498c21830d28c0e
+      created: 1763342425698
+      modified: 1763342425698
+      sortKey: -1763342425698
+      description: ""
+    children:
+      - url: ""
+        name: alterar
+        meta:
+          id: req_d7904a8cd1b247eea2034aab28f8cd04
+          created: 1763342432586
+          modified: 1763342586709
+          isPrivate: false
+          description: ""
+          sortKey: -1763342432586
+        method: PUT
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: desativar
+        meta:
+          id: req_112354e279204493a9dc5fe503e55003
+          created: 1763342435354
+          modified: 1763342599165
+          isPrivate: false
+          description: ""
+          sortKey: -1763342435354
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: inserir
+        meta:
+          id: req_a2885daea1314fe782e922142b32feaf
+          created: 1763342449403
+          modified: 1763342574853
+          isPrivate: false
+          description: ""
+          sortKey: -1763342449403
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: ""
+        name: consultar
+        meta:
+          id: req_6771252fff784b67af0581f8c167e44b
+          created: 1763342451166
+          modified: 1763343052245
+          isPrivate: false
+          description: ""
+          sortKey: -1763342451166
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            "nome": "",
+            "email": "",
+            "usuario": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1763342244433
+    modified: 1763342244433
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1763342244431
+    modified: 1763342244431
+    isPrivate: false

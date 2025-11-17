@@ -54,6 +54,14 @@ function validarDados($valor, $tipo, $tamanhoZero = true)
                 return ['codigoHelper' => 7, 'msg' => 'Hora em formato inválido.'];
             }
             break;
+        case 'email':
+            if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
+                return array(
+                    'codigoHelper' => 8,
+                    'msg' => 'E-mail em formato inválido.'
+                );
+            }
+            break;
         default:
             return ['codigoHelper' => 0, 'msg' => 'Tipo de dado não definido.'];
     }
@@ -89,6 +97,14 @@ function validarDadosConsulta($valor, $tipo)
                     return ['codigoHelper' => 7, 'msg' => 'Hora em formato inválido.'];
                 }
                 break;
+            case 'email':
+                if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
+                    return array(
+                        'codigoHelper' => 8,
+                        'msg' => 'E-mail em formato inválido.'
+                    );
+                }
+            break;
             default:
                 return ['codigoHelper' => 97, 'msg' => 'Tipo de dado não definido.'];
         }
