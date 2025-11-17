@@ -138,7 +138,7 @@ class M_turma extends CI_Model
     return $dados;
 }
 
-private function consultaTurmaCod($codigo)
+public function consultaTurmaCod($codigo)
 {
     try {
         $sql = "select * from tbl_turma where codigo = $codigo ";

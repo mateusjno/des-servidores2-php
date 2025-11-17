@@ -39,7 +39,7 @@ class M_horario extends CI_Model
         return $dados;
     }
 
-    private function consultarHorario($codigo, $horaInicial, $horaFinal)
+    public function consultarHorario($codigo, $horaInicial, $horaFinal)
     {
         try {
             if ($codigo != '') {

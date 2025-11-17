@@ -237,7 +237,7 @@ class M_mapa extends CI_Model{
                     $horarioObj = new M_horario();
                     $retornoConsultaHorario = $horarioObj->consultarHorario($codHorario, '', '');
 
-                    if ($retornoConsultaHorario['codigo'] == 1) {
+                    if ($retornoConsultaHorario['codigo'] == 10) {
                         $query .= "codigo_horario = $codHorario, ";
                     } else {
                         return array(
@@ -251,7 +251,7 @@ class M_mapa extends CI_Model{
                     $turmaObj = new M_turma();
                     $retornoConsultaTurma = $turmaObj->consultaTurmaCod($codTurma);
 
-                    if ($retornoConsultaTurma['codigo'] == 1) {
+                    if ($retornoConsultaTurma['codigo'] == 10) {
                         $query .= "codigo_turma = $codTurma, ";
                     } else {
                         return array(
